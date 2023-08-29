@@ -99,7 +99,7 @@ if [ $step_3 = true ]; then
     fi
 
     cd ${ippl_SRC}
-    git checkout tags/IPPL-3.0.1
+    git checkout 209-in-situ-vis
 
     export NVCC_WRAPPER_DEFAULT_COMPILER="$(which gcc)"
 
