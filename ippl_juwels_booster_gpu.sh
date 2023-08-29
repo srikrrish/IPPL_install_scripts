@@ -117,6 +117,7 @@ if [ $step_3 = true ]; then
         -DENABLE_TESTS=ON \
         -DENABLE_UNIT_TESTS=OFF \
         -DENABLE_FFT=ON \
+        -DENABLE_CATALYST=ON \
         -DENABLE_SOLVERS=ON \
         -DENABLE_ALPINE=ON \
         -DCMAKE_CXX_FLAGS="--expt-extended-lambda -arch=sm_80" \
