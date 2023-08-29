@@ -1,6 +1,6 @@
 #!/bin/bash
 
-year=2022
+year=2023
 
 #ml Stages/${year}
 #ml GCC
