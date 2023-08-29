@@ -1,6 +1,6 @@
 #!/bin/bash
 
-year=2022
+year=2023
 
 #ml Stages/${year}
 #ml GCC
@@ -110,6 +110,7 @@ if [ $step_3 = true ]; then
         -DENABLE_TESTS=ON \
         -DENABLE_UNIT_TESTS=OFF \
         -DENABLE_FFT=ON \
+        -DENABLE_CATALYST=ON \
         -DENABLE_SOLVERS=ON \
         -DENABLE_ALPINE=ON \
         -DCMAKE_BUILD_TYPE=Release \
