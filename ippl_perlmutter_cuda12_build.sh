@@ -99,7 +99,7 @@ ippl_SRC=${HOME_DIR}/ippl
 if [ $step_3 = true ]; then
 
     if [ ! -d ${ippl_SRC} ]; then
-        git clone https://gitlab.psi.ch/OPAL/Libraries/ippl.git ${ippl_SRC}
+        git clone https://github.com/IPPL-framework/ippl.git ${ippl_SRC}
     fi
 
     cd ${ippl_SRC}
