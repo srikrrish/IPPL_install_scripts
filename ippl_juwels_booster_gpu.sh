@@ -1,6 +1,6 @@
 #!/bin/bash
 
-year=2022
+year=2023
 
 #ml Stages/${year}
 #ml GCC
@@ -95,11 +95,11 @@ ippl_SRC=${HOME_DIR}/ippl
 if [ $step_3 = true ]; then
 
     if [ ! -d ${ippl_SRC} ]; then
-        git clone https://gitlab.psi.ch/OPAL/Libraries/ippl.git ${ippl_SRC}
+        git clone https://github.com/IPPL-framework/ippl.git ${ippl_SRC}
     fi
 
     cd ${ippl_SRC}
-    git checkout tags/IPPL-3.0.1
+    git checkout 209-in-situ-vis
 
     export NVCC_WRAPPER_DEFAULT_COMPILER="$(which gcc)"
 
@@ -117,6 +117,7 @@ if [ $step_3 = true ]; then
         -DENABLE_TESTS=ON \
         -DENABLE_UNIT_TESTS=OFF \
         -DENABLE_FFT=ON \
+        -DENABLE_CATALYST=ON \
         -DENABLE_SOLVERS=ON \
         -DENABLE_ALPINE=ON \
         -DCMAKE_CXX_FLAGS="--expt-extended-lambda -arch=sm_80" \

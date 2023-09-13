@@ -3,7 +3,7 @@
 set -x
 set -e
 
-ml load cray-mpich
+ml load mpich/4.1.1
 ml load cmake/3.24.3
 ml load cudatoolkit/12.0
 cmake --version
@@ -78,7 +78,7 @@ if [ $step_2 = true ]; then
     fi
     mkdir build && cd build
     cmake \
-    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_INSTALL_PREFIX=${HEFFTE_INSTALL_PREFIX} \
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=ON \
@@ -99,7 +99,7 @@ ippl_SRC=${HOME_DIR}/ippl
 if [ $step_3 = true ]; then
 
     if [ ! -d ${ippl_SRC} ]; then
-        git clone https://gitlab.psi.ch/OPAL/Libraries/ippl.git ${ippl_SRC}
+        git clone https://github.com/IPPL-framework/ippl.git ${ippl_SRC}
     fi
 
     cd ${ippl_SRC}
@@ -116,8 +116,8 @@ if [ $step_3 = true ]; then
 
     cmake \
         -DCMAKE_CXX_EXTENSIONS=OFF \
-        -DMPI_C_COMPILER=cc \
-        -DMPI_CXX_COMPILER=CC \
+        -DMPI_C_COMPILER=mpicc \
+        -DMPI_CXX_COMPILER=mpicxx \
         -DCMAKE_CXX_COMPILER=${KOKKOS_INSTALL_PREFIX}/bin/nvcc_wrapper \
         -DCMAKE_CXX_FLAGS="${CRAY_CUDATOOLKIT_INCLUDE_OPTS}" \
         -DCMAKE_EXE_LINKER_FLAGS="${CRAY_CUDATOOLKIT_POST_LINK_OPTS} -lcufft" \
