@@ -42,7 +42,7 @@ if [ $step_1 = true ]; then
     mkdir build && cd build
     cmake \
         -DCMAKE_INSTALL_PREFIX=${KOKKOS_INSTALL_PREFIX} \
-	    -DCMAKE_CXX_COMPILER="$(which gcc)" \
+	-DCMAKE_CXX_COMPILER="$(which gcc)" \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_CXX_EXTENSIONS=OFF \
         -DCMAKE_CXX_STANDARD=20 \
